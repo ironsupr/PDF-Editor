@@ -83,7 +83,7 @@ def check_rotate(img):
 
     return rotated_image
 
-def pdf_to_jpg(pdf_path, output_dir="output"):
+def pdf_to_png(pdf_path, output_dir="output"):
     # poppler_path = r"D:\Project\Release-24.07.0-0\poppler-24.07.0\Library\bin"
     i = 1
     # Ensure the output directory exists

@@ -1,0 +1,7 @@
+customtkinter
+pdf2image
+PyPDF2
+opencv-python
+numpy
+pillow
+matplotlib

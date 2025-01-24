@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 from pdf2image import convert_from_path
 import os
+import PyPDF2
 # from pdf2jpg import pdf2jpg
 
 def check_rotate(img):
@@ -111,15 +112,20 @@ def pdf_to_png(pdf_path, output_dir="output"):
 
 def images_to_pdf(image_dir=r"output", output_pdf="output.pdf"):
     # Get all image files from the directory
+    if not os.path.exists(image_dir):
+        print(f"Directory '{image_dir}' does not exist.")
+        return
+
     image_paths = [os.path.join(image_dir, filename) for filename in os.listdir(image_dir) if filename.endswith(('png', 'jpg', 'jpeg'))]
 
-    for i in image_paths:
-        img = check_rotate(i)
-        cv2.imwrite(i, img)
     
     if not image_paths:
         print("No image files found in the directory.")
         return
+
+    for i in image_paths:
+        img = check_rotate(i)
+        cv2.imwrite(i, img)
 
     # Open each image
     images = [Image.open(image_path) for image_path in image_paths]
@@ -132,5 +138,4 @@ def images_to_pdf(image_dir=r"output", output_pdf="output.pdf"):
     images[0].save(output_pdf, save_all=True, append_images=images[1:])
     print(f"PDF saved as {output_pdf}")
 
-# pdf_to_jpg(r"pdf")
-# images_to_pdf("output")
+images_to_pdf("Images")

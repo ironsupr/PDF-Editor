@@ -49,7 +49,7 @@ PDF Manager is a Python-based desktop application that provides tools for managi
 - [Matplotlib](https://matplotlib.org/)
 
 ## Screenshots
-(Include screenshots of the application in action, e.g., the GUI interface, success messages, etc.)
+![alt text](image.png)
 
 ## Future Improvements
 - Add support for additional image and PDF editing tools.
